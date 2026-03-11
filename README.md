@@ -1,160 +1,148 @@
-Bingo Game Using Python Turtle
+# Bingo Game Using Python Turtle
 
-Player vs Computer Bingo Simulation
+## Overview
 
-Overview
+This project implements a **graphical Bingo game** using the **Python programming language** and the **Turtle graphics library**. The game simulates a traditional bingo environment in which a **player competes against the computer** using randomly generated bingo cards.
 
-This project implements a graphical Bingo game using the Python Turtle graphics library. The game simulates a traditional bingo environment where a player competes against the computer using randomly generated bingo cards.
+Both the player and the computer receive **5 × 5 bingo grids** containing numbers randomly selected from **1 to 35**. During gameplay, numbers are drawn randomly and displayed on the screen. If a drawn number appears in either grid, it is **automatically crossed out**.
 
-Both the player and the computer receive 5 × 5 bingo grids filled with numbers randomly selected from 1 to 35. During gameplay, random numbers are drawn and displayed on the screen. If the number appears in either grid, it is automatically crossed out.
+The objective of the game is to complete **five lines** on a grid. A line may be a **row, column, or diagonal**. The first grid to complete **five lines** wins the game. If both grids reach this condition simultaneously, the game ends in a **tie**.
 
-The goal of the game is to complete five lines on a grid. A line can be:
+The graphical interface displays the **bingo cards, drawn numbers, and completed line counters** for both the player and the computer.
 
-A horizontal row
+---
 
-A vertical column
+## Project Structure
 
-A diagonal
-
-The first grid to complete five lines wins the game. If both grids complete the condition at the same time, the game ends in a tie.
-
-The project demonstrates the use of Python graphics, event-driven programming, and game logic implementation.
-
-Project Structure
+```
+bingo-game/
+│
 ├── bingo_game.py
 ├── README.md
-Libraries Used
-turtle
-random
+```
 
-The Turtle library is included with the standard Python installation.
+---
 
-Game Interface
+## Libraries Used
 
-The graphical interface includes:
+The project uses the following Python libraries:
 
-A title displayed at the top of the screen
+**turtle** – Used to create the graphical interface and draw the bingo grids.  
+**random** – Used to generate random numbers for the bingo cards and number draws.
 
-Two bingo grids labeled Player and Computer
+The **Turtle library** is included in the **standard Python installation**, so no additional installation is required.
 
-A central display showing the most recently drawn number
+---
 
-Counters that track the number of completed lines
+## Game Interface
 
-A final animation that displays the game result
+The graphical interface contains several elements that allow the user to visually follow the progress of the game.
 
-Bingo Card Generation
+The interface includes:
 
-Each bingo card is generated using numbers between 1 and 35.
+- A **BINGO title** displayed at the top of the screen  
+- Two **5 × 5 bingo grids** labeled **Player** and **Computer**  
+- A central display showing the **most recently drawn number**  
+- **Counters** that track the number of completed lines for each grid  
+- A **final animation** that displays the winner of the game  
 
-Characteristics of the bingo card:
+---
 
-Grid size: 5 × 5
+## Bingo Card Generation
 
-Numbers are randomly arranged
+Each bingo card is generated using numbers in the range **1 to 35**.
 
-No duplicate numbers appear in the same card
+Characteristics of the bingo card include:
 
-Example grid:
+- **Grid size:** 5 × 5  
+- **Random arrangement of numbers**  
+- **No duplicate numbers** within the same card  
 
+Example structure of a bingo card:
+
+```
 12   7   25   3   31
 4    19  6    11  28
 21   14  9    30  17
 10   5   23   2   26
 13   8   20   27  16
-Game Logic
+```
 
-The game operates through the following steps:
+---
 
-Two bingo grids are created for the player and the computer.
+## Game Logic
 
-The user presses the space bar to draw a random number.
+The game operates through a sequence of steps that simulate the process of a bingo draw.
 
-The drawn number is displayed in the center of the screen.
+1. Two bingo grids are generated for the **player** and the **computer**.
+2. The user presses the **space bar** to draw a random number.
+3. The drawn number is displayed in the **center of the screen**.
+4. If the number appears on either grid, it is **crossed out automatically**.
+5. The program continuously checks for completed **rows, columns, and diagonals**.
+6. A counter updates the number of **completed lines** for each grid.
+7. The game ends when a grid completes **five lines**.
 
-If the number exists in a grid, it is marked with a cross.
+Possible outcomes include:
 
-The program checks whether any rows, columns, or diagonals are completed.
+- **Player wins**
+- **Computer wins**
+- **Tie**
 
-The counter showing completed lines is updated continuously.
+---
 
-The game ends when a grid completes five lines.
+## Key Functions in the Program
 
-Possible outcomes:
+**generate_card()**  
+Generates a **5 × 5 bingo card** containing randomly selected numbers between **1 and 35** without duplication.
 
-Player wins
+**draw_grid()**  
+Draws the **bingo grid structure** on the screen using Turtle graphics.
 
-Computer wins
+**write_numbers()**  
+Writes the generated numbers inside the corresponding cells of the bingo grid.
 
-Tie
+**draw_random_numbers()**  
+Triggers when the **space bar** is pressed. It draws a random number, displays it on the screen, and checks both grids for matches.
 
-Key Functions in the Program
-generate_card()
+**slash_number()**  
+Visually **crosses out numbers** that have been drawn.
 
-This function generates a 5 × 5 bingo card containing random numbers between 1 and 35 without duplication.
+**check_bingo()**  
+Checks whether the bingo card has completed any **rows, columns, or diagonals**, updates the counter, and determines whether the winning condition has been reached.
 
-draw_grid()
+**game_over()**  
+Displays the **final animation announcing the winner** and closes the game window.
 
-This function draws the bingo grid structure on the screen using Turtle graphics.
+---
 
-write_numbers()
+## Features
 
-This function writes the generated numbers inside the corresponding grid cells.
+The project includes several features that demonstrate graphical programming and interactive gameplay:
 
-draw_random_numbers()
+- **Graphical Bingo interface** built using Turtle graphics  
+- **Randomly generated bingo cards** for both player and computer  
+- **Real-time number drawing and marking**  
+- Automatic detection of **completed rows, columns, and diagonals**  
+- **Player vs Computer gameplay**  
+- **Animated end-of-game display**
 
-This function draws a random number whenever the space bar is pressed, displays it on the screen, and checks whether it exists in either grid.
+---
 
-slash_number()
+## Key Concepts Demonstrated
 
-This function visually crosses out numbers that have already been drawn.
+This project demonstrates several important programming concepts, including:
 
-check_bingo()
+- **Python graphics programming**
+- **Event-driven programming**
+- **Random number generation**
+- **Game logic implementation**
+- **Grid-based visualization**
+- **Basic animation using Turtle graphics**
 
-This function checks whether the bingo card has completed any:
+---
 
-rows
+## Author
 
-columns
-
-diagonals
-
-It updates the line counter and determines whether the winning condition has been reached.
-
-game_over()
-
-This function displays the final animation announcing the winner and closes the game window.
-
-Features
-
-Graphical Bingo interface using Turtle graphics
-
-Randomly generated bingo cards
-
-Real-time number drawing and marking
-
-Automatic detection of completed lines
-
-Player vs Computer gameplay
-
-Animated end-of-game display
-
-Key Concepts Demonstrated
-
-Python graphics programming
-
-Event-driven programming
-
-Random number generation
-
-Game logic implementation
-
-Grid-based visualization
-
-Basic animation using Turtle graphics
-
-Author
-
-Sanjana
+**Sanjana**
 
 Python Programming Project
